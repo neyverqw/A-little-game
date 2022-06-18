@@ -28,7 +28,6 @@ class Player extends AcGameObject {
         this.playground.game_map.$canvas.mousedown(function(e) {
             if (e.which == 3) {
                  outer.move_to(e.clientX, e.clientY);
-                consule
             }
         });
     }
@@ -50,10 +49,9 @@ class Player extends AcGameObject {
             this.vx = this.vy = 0;
         } else {
             let moved = Math.min(this.move_length, this.speed * this.timedelta / 1000);
-            this.x += this.vx + moved;
-            this.y += this.vy + moved;
+            this.x += this.vx * moved;
+            this.y += this.vy * moved;
             this.move_length -= moved;
-            console.log(moved);
         }
         this.render();
     }
